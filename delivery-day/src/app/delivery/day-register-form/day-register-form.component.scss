@@ -1,0 +1,15 @@
+
+:host {
+  mat-card{
+    width: 90%;
+    height: auto;
+    margin: 13px auto;
+    padding: 8px;
+    background-color: rgba(0,0,0,.75);
+    color: white;
+  }
+
+  mat-card-title{
+    text-align: center;
+  }
+}
