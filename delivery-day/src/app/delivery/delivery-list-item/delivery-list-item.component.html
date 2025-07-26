@@ -1,0 +1,26 @@
+<mat-card *ngIf="deliveryInput; else error">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ deliveryInput?.date }}</mat-card-title>
+      <mat-card-subtitle>{{ deliveryInput?.shiftType }}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <div>work time: {{deliveryInput.startingTime}} - {{deliveryInput.endingTime}}</div>
+    <div>Zone: {{deliveryInput.zone}}</div>
+    <div class="col-container-center">kilometers
+      <div class="row-container-evenly">
+      <h3>start: {{deliveryInput.kmMeterAtStart}} km</h3>
+      <h3>finish: {{deliveryInput.kmMeterAtEnd}} km</h3>
+      </div>
+      <div>total driven: {{deliveryInput.kmMeterAtEnd-deliveryInput.kmMeterAtStart}} km</div>
+    </div>
+    <div>km driven: {{deliveryInput.kmMeterAtEnd-deliveryInput.kmMeterAtStart}} km</div>
+    <div>total earn: HUF {{deliveryInput.totalEarnings}}.-</div>
+    <div>total deliveries: {{deliveryInput.totalDelivery}}</div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #error>
+  <error-card></error-card>
+</ng-template>

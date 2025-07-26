@@ -1,49 +1,30 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {MatCard} from "@angular/material/card";
-import {
-  MatCell, MatCellDef,
-  MatColumnDef,
-  MatHeaderCell, MatHeaderCellDef,
-  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
-  MatTable
-} from "@angular/material/table";
 import {Observable} from "rxjs";
 import {DeliveryDay} from "../delivery-day";
-import {AsyncPipe, NgIf} from "@angular/common";
+import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {DeliveryService} from "../delivery.service";
+import {
+  DeliveryListItemComponent
+} from "../delivery-list-item/delivery-list-item.component";
 
 @Component({
-  selector: 'delivery-statistics-table',
+  selector: 'delivery-list',
   standalone: true,
   imports: [
-    MatCard,
-    MatTable,
     NgIf,
     AsyncPipe,
-    MatColumnDef,
-    MatHeaderRow,
-    MatHeaderCell,
-    MatCell,
-    MatCellDef,
-    MatHeaderCellDef,
-    MatHeaderRowDef,
-    MatRow,
-    MatRowDef
+    NgForOf,
+    DeliveryListItemComponent,
   ],
-  templateUrl: './delivery-statistics-table.component.html',
-  styleUrl: './delivery-statistics-table.component.scss'
+  templateUrl: './delivery-list.component.html',
+  styleUrl: './delivery-list.component.scss'
 })
-export class DeliveryStatisticsTableComponent implements OnInit {
-  dataSource$?: Observable<DeliveryDay[]>
+export class DeliveryListComponent implements OnInit {
+  deliveryList$?: Observable<DeliveryDay[]>
 
   deliveryService = inject(DeliveryService);
 
   ngOnInit(): void {
-      this.dataSource$ = this.deliveryService.getDeliveries$;
+    this.deliveryList$ = this.deliveryService.getDeliveries$;
   }
-
-  clickOnDelivery(id:number): void {
-    
-  }
-  displayedColumns: string[] = ['date','time','shiftType'];
 }
