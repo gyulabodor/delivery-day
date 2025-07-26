@@ -1,4 +1,4 @@
-export enum DeliveryShiftType {
-  PRE_BOOKING,
-  WORK_NOW
+export enum DeliveryShiftType  {
+  BOOKED="BOOKED",
+  WORK_NOW="WORK_NOW",
 }
