@@ -1,0 +1,19 @@
+:host{
+  mat-card{
+    width: 95%;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .mat-mdc-row .mat-mdc-cell {
+    text-align: center;
+    cursor: pointer;
+  }
+  .mat-mdc-header-cell{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+  .mat-mdc-row:hover{
+    background-color: #42e67b;
+  }
+}
